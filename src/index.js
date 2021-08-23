@@ -31,29 +31,22 @@ function minusClicked() {
 }
 
 function loadDays() {
-    const filterDiv = document.getElementById('filter');
+    const select = document.getElementById('select');
+    const option = document.createElement('option');
+    option.innerText = 'Select a Day';
+    select.appendChild(option)
     
     days.forEach(day => {
-        const dayDiv = document.createElement('div');
-        dayDiv.setAttribute('id', day);
-        dayDiv.innerText = day;
-        filterDiv.append(dayDiv)
+        const dayOption = document.createElement('option');
+        dayOption.innerText = day;
+        select.appendChild(dayOption)
     })
 
-    const filter = document.getElementById('filter-button');
-    filter.addEventListener('click', triggerFilter)
+    select.addEventListener('input', triggerFilter)
 }
 
 function triggerFilter(event) {
-    console.log("I triggered the filter!")
-    const input = event.target.previousElementSibling.value
-    days.forEach(day => {
-        if (day === input) {
-            console.log(day)
-        } else {
-            console.log("not a day")
-        }
-    })
+    console.log("You selected", event.target.value)
 }
 
 
