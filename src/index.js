@@ -12,12 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function plusClicked() {
     console.log("I clicked plus!")
-
+    const counter = document.getElementById('count');
+    let currentCount = parseInt(counter.innerText);
+    counter.innerText = currentCount += 1;
 }
 
 function minusClicked() {
     console.log("I clicked minus!")
-
+    const counter = document.getElementById('count');
+    let currentCount = parseInt(counter.innerText);
+    if (currentCount > 0) {
+        counter.innerText = currentCount -= 1;
+    }
 }
 
 
