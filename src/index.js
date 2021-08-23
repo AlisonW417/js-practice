@@ -47,6 +47,14 @@ function loadDays() {
 
 function triggerFilter(event) {
     console.log("You selected", event.target.value)
+    const filterDiv = document.getElementById('filter')
+    const dayDiv = document.getElementById('day')
+    dayDiv.innerHTML = ""
+    const dayHeader = document.createElement('h3')
+    const selectedDay = event.target.value
+    dayHeader.innerText = selectedDay
+    dayDiv.appendChild(dayHeader)
+    filterDiv.appendChild(dayDiv)
 }
 
 
