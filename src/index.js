@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadDays();
 
-    const input = document.getElementById('input');
-    input.addEventListener('change', triggerFilter)
-
     // loadButton();
 })
 
@@ -38,13 +35,25 @@ function loadDays() {
     
     days.forEach(day => {
         const dayDiv = document.createElement('div');
+        dayDiv.setAttribute('id', day);
         dayDiv.innerText = day;
         filterDiv.append(dayDiv)
     })
+
+    const filter = document.getElementById('filter-button');
+    filter.addEventListener('click', triggerFilter)
 }
 
 function triggerFilter(event) {
-    console.log("I triggered the filter")
+    console.log("I triggered the filter!")
+    const input = event.target.previousElementSibling.value
+    days.forEach(day => {
+        if (day === input) {
+            console.log(day)
+        } else {
+            console.log("not a day")
+        }
+    })
 }
 
 
