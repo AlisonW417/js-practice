@@ -1,3 +1,5 @@
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM is Loaded");
 
@@ -6,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const minusButton = document.getElementById('minus');
     minusButton.addEventListener('click', minusClicked);
+
+    loadDays();
+
+    const input = document.getElementById('input');
+    input.addEventListener('change', triggerFilter)
 
     // loadButton();
 })
@@ -26,6 +33,19 @@ function minusClicked() {
     }
 }
 
+function loadDays() {
+    const filterDiv = document.getElementById('filter');
+    
+    days.forEach(day => {
+        const dayDiv = document.createElement('div');
+        dayDiv.innerText = day;
+        filterDiv.append(dayDiv)
+    })
+}
+
+function triggerFilter(event) {
+    console.log("I triggered the filter")
+}
 
 
 // function loadButton() {
