@@ -1,4 +1,5 @@
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const cats = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM is Loaded");
@@ -10,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     minusButton.addEventListener('click', minusClicked);
 
     loadDays();
+
+    getCats();
 
     // loadButton();
 })
@@ -57,6 +60,19 @@ function triggerFilter(event) {
     filterDiv.appendChild(dayDiv)
 }
 
+function getCats() {
+    fetch("https://api.artic.edu/api/v1/artworks/search?q=cats&query[term][is_public_domain]=true"
+        )
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp)
+        resp.data.forEach(cat => {
+            new Cat(cat.title, cat.thumbnail)
+            cats.push(cat)
+        })
+    })
+    .catch(err => alert(err))
+}
 
 // function loadButton() {
 //     // debugger
