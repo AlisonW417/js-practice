@@ -1,5 +1,12 @@
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const cats = [];
+const monday = "monday";
+function reverseString(str) {
+    // debugger
+    const strAry = str.split("")
+    const rev = strAry.reverse().join("")
+    console.log(rev)
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM is Loaded");
@@ -14,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     getCats();
 
+    reverseString(monday);
     // loadButton();
 })
 
