@@ -70,10 +70,32 @@ function getCats() {
             new Cat(cat.title, cat.thumbnail)
             cats.push(cat)
         })
+    renderCats();
     })
     .catch(err => alert(err))
 }
 
+function renderCats() {
+    cats.forEach(cat => {
+        const mainDiv = document.getElementById('main')
+        const catDiv = document.createElement('div')
+        const catTitle = document.createElement('h4')
+        const catPic = document.createElement('img')
+        catTitle.innerText = cat.title;
+        catPic.setAttribute('src', cat.thumbnail.lqip)
+        catPic.setAttribute('alt', cat.thumbnail.alt_text)
+        // catPic.setAttribute('width', cat.thumbnail.width)
+        // catPic.setAttribute('height', cat.thumbnail.height)
+        catDiv.append(catTitle)
+        catDiv.append(catPic)
+        mainDiv.append(catDiv)
+    })
+}
+
+// alt_text: "A work made of lithograph in 6 colors (red, ochre, yellow, black, gray-brown, brown) from two stones, with scraping on stone, on ivory wove paper."
+// height: 2250
+// lqip: "data:image/gif;base64,R0lGODlhBgAFAPQAAEI9JFFFLV5QPWVaOn1VR31rUHhpV3BnXHprWYBhRpJgUIdyU6VqW6pxXKR5WId9b458bcBvZcdwaM14btR3b9V8c9F/eI6Dc6uHeqKSfcORhtiVjdmWjt6ZkAAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUY4GUgxZI9QgAk2jE4CrNBhFVRHdZMkcSFADs="
+// width: 2928
 // function loadButton() {
 //     // debugger
 //     const mainDiv = document.getElementById('main');
